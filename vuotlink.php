@@ -1,4 +1,3 @@
-<?php
 /* Mã nguồn mở */
 /* Developer: Mr. KPB */
 /* Donate: payments.kpb-fia.com */
