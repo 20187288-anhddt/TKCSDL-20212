@@ -2,35 +2,33 @@
 /* Mã nguồn mở */
 /* Developer: Mr. KPB */
 /* Donate: payments.kpb-fia.com */
-$_SESSION["file-name"] = "1btoolv23.php";
 
-
+$_SESSION["file-name"] = "btoolv23.php";
 $_SESSION["off-color"] = 'OFF';
+
 #if (readline("đang nâng cấp chế độ 6link và 4link:")!=188877778){ exit; }
 chinh_sach();
-function getRootDirectoryPath()
-{
 
-$root = getcwd();
-if (isset(explode("/storage/emulated/0", $root)[1])) {
-        return "/storage/emulated/0/";
-    } elseif (isset(explode("/root", $root)[1])) {
-        return "/root/";
-    } else {
-        return "C:\\";
+function getRootDirectoryPath(){
+    $root = getcwd();
+    if (isset(explode("/storage/emulated/0", $root)[1])) {
+            return "/storage/emulated/0/";
+        } elseif (isset(explode("/root", $root)[1])) {
+            return "/root/";
+        } else {
+            return "C:\\";
+        }
+}
+
+function root_kpb() {
+    $os = strtoupper(PHP_OS);
+    if ($os == "DARWIN") {
+    return "";
     }
-  
-}
-function root_kpb()
-{
- $os = strtoupper(PHP_OS);
-if ($os == "DARWIN") {
-return "";
-}
     return getRootDirectoryPath() . "BTOOL-LINUX-V23/all-data/";
 }
-function check_key($key_in)
-{
+
+function check_key($key_in){
     $head = [
         "Host: cft.sever.blog-share.xyz",
         "User-Agent:Mozilla/5.0 (Linux; Android 9; RMX1811) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Mobile Safari/537.36",
@@ -46,11 +44,10 @@ function check_key($key_in)
         "uid" => getcdcrb(),
         "time" => time(),
     ];
-
     echo http_build_query($query);
     sleep(10);
     $url = "https://cft.sever.blog-share.xyz/check.php?file=1btoolv23.php&type=6-link&Ip=1.53.8.154&Key-Check=KPBSHOP_MTcwMTA4MjM4OTY1NjQ3NTE1Y2RmYmU2LjEyOTYzNzE0&update=2828&apikey=mrkpbaRtZG90E0bQTARrvVBI&uid=QzpcQlRPT0wtTElOVVgtVjIzL2twYi1maWEuY29tJm1yLmtwYi5qc29uJmpzb24mbXIua3BiJjE3MDA5MDY1MjlyNWdWbko0ZE83dTB5b0xNVGN3TURrd05qVXlPUT09&time=1701279845";
-#die($url);
+    #die($url);
     $ch = curl_init();
     curl_setopt_array($ch, [
         CURLOPT_URL => $url,
@@ -65,16 +62,15 @@ function check_key($key_in)
         CURLOPT_ENCODING => true,
     ]);
     $BA = curl_exec($ch);
-
     return json_decode($BA, true);
     print_r($result);
     sleep(100);
 }
-function tokma($A)
-{
-if ($_SESSION["off-color"] == "ON"){
-return '';
-}
+
+function tokma($A){
+    if ($_SESSION["off-color"] == "ON"){
+        return '';
+    }
     $B = strlen($A);
     $kitu = "";
     for ($K = 0; $K < $B; $K++) {
@@ -86,8 +82,8 @@ return '';
     }
     return rdm() . $kitu;
 }
-function vghcricdhcdy2($chuoi)
-{
+
+function vghcricdhcdy2($chuoi){
     $chuoi2 = $chuoi;
     $mang_mau = [
         "\033[1;30m",
@@ -123,8 +119,8 @@ function vghcricdhcdy2($chuoi)
             "\n"
     );
 }
-function dsht()
-{
+
+function dsht(){
   /*  $i = 0;
     while ($i < 100) {
         echo "\n";
@@ -132,8 +128,8 @@ function dsht()
     }*/
     @system("clear");
 }
-function vn_to_stxc($str)
-{
+
+function vn_to_stxc($str){
     $unicode = [
         "a" => "á|à|ả|ã|ạ|ă|ắ|ặ|ằ|ẳ|ẵ|â|ấ|ầ|ẩ|ẫ|ậ",
         "d" => "đ",
@@ -156,13 +152,14 @@ function vn_to_stxc($str)
     $str = str_replace(" ", "_", $str);
     return $str;
 }
-function containsDecimal2($value)
-{
+
+function containsDecimal2($value){
     if (strpos($value, ".") !== false) {
         return true;
     }
     return false;
 }
+
 function open_url($url)
 {
     if (strtoupper(substr(PHP_OS, 0, 3)) === "LIN") {
@@ -175,23 +172,23 @@ function open_url($url)
         echo "Không hỗ trợ nền tảng này.";
     }
 }
-function clearScreen()
-{
+
+function clearScreen(){
     if (strtoupper(substr(PHP_OS, 0, 3)) === "WIN") {
         @system("clear");
     } else {
     @system("clear");
     }
 }
-function getcdcrb()
-{
+
+function getcdcrb(){
     return pbctb();
 }
-function rdm()
-{
-if ($_SESSION["off-color"] == "ON"){
-return '';
-}
+
+function rdm(){
+    if ($_SESSION["off-color"] == "ON"){
+        return '';
+    }
     $B = [];
     array_push(
         $B,
@@ -207,21 +204,22 @@ return '';
     );
     return $B[array_rand($B, 1)];
 }
+
 $_SESSION["donate-for-kpb"] = "1.53.8.154";
-function bb($A)
-{
+
+function bb($A){
     echo $A;
 }
-function fggct($A)
-{
+
+function fggct($A){
     return file_get_contents($A);
 }
-function nf()
-{
+
+function nf(){
     return root_kpb() . "Api_Key-KPBFIA.txt";
 }
-function api_key_vi()
-{
+
+function api_key_vi(){
     chedovip();
     $A = nf();
     $DLKT = check_Key(fggct($A));
@@ -235,10 +233,10 @@ function api_key_vi()
             $url_key = $DLKT["url-get-key"];
         }
         if ($DLKT["msg"] == "Key-Vip-False") {
-unlink(nf());
+            unlink(nf());
             exit(mau("v") . "Key Vip Đã Đạt Tối Đa Thiết Bị Sử Dụng.\n");
         }
-$user_id = 1678794751032;
+        $user_id = 1678794751032;
         $ACD =
             "\n  \n  " .
             rdm() .
@@ -257,31 +255,29 @@ $user_id = 1678794751032;
         bb($ACD);
         bb(mau("tr")."[".mau("xdns")."note".mau("tr")."]> ".mau("tr")."[\033[44m".mau("v").$DLKT["msg-link"].mau("tr")."\033[40m]\n");
         kpb_be();
-bb(rdm()."<^>> ".rdm()."id ".rdm()."user: ".rdm()."$user_id\n");
- bb(mau("tr")."[".mau("xdns")."!".mau("tr")."]> ".mau("v")."Bạn lười vượt link? Không vấn đề,\n     chúng tôi đã có giải pháp cho bạn.\n");
-bb(mau("tr")."[".mau("xdns")."!".mau("tr")."]> ".mau("v")."Hỗ trợ nạp tiền tự động qua thẻ cào, ngân hàng.\n");
+        bb(rdm()."<^>> ".rdm()."id ".rdm()."user: ".rdm()."$user_id\n");
+        bb(mau("tr")."[".mau("xdns")."!".mau("tr")."]> ".mau("v")."Bạn lười vượt link? Không vấn đề,\n     chúng tôi đã có giải pháp cho bạn.\n");
+        bb(mau("tr")."[".mau("xdns")."!".mau("tr")."]> ".mau("v")."Hỗ trợ nạp tiền tự động qua thẻ cào, ngân hàng.\n");
 
+        bb(mau("tr")."[".mau("xdns")."!".mau("tr")."]> ".mau("xdns")."Mua Key VIP Tại: ".mau("ds")."https://shop.kpb-fia.com\n");
+        kpb_be();
+    if (isset($url_key) && $url_key){
+        $ttlink = mau("v")."Bật";
+        } else {
+            $ttlink = mau("ds")."Tắt";
+        }
+        bb(mau("tr")."[".mau("xdns")."*".mau("tr")."]> ".mau("tr")."Trạng thái chế độ link: ".mau("tr")."[".$ttlink.mau("tr")."]\n");
 
-bb(mau("tr")."[".mau("xdns")."!".mau("tr")."]> ".mau("xdns")."Mua Key VIP Tại: ".mau("ds")."https://shop.kpb-fia.com\n");
-kpb_be();
-if (isset($url_key) && $url_key){
-$ttlink = mau("v")."Bật";
-} else {
-$ttlink = mau("ds")."Tắt";
-}
-bb(mau("tr")."[".mau("xdns")."*".mau("tr")."]> ".mau("tr")."Trạng thái chế độ link: ".mau("tr")."[".$ttlink.mau("tr")."]\n");
-
-if (isset($url_key) && $url_key){
-$type_link = explode("-",$_SESSION["type-link"]);
-$type_link = ($type_link[0])."-".$type_link[1];
-bb(mau("tr")."[".mau("v")."+".mau("tr")."]> ".mau("tr")."Chế Độ Vượt: ".mau("v").$type_link."\n");
-bb(mau("tr")."[".mau("v")."+".mau("tr")."]> ".mau("tr")."Nếu Đã Vượt Link Hãy Enter Để Tool Kiểm Tra\n");
-bb(mau("tr")."[".mau("xdns")."+".mau("tr")."]> ".mau("tr")."Nếu Chưa Hãy Vượt Link Bên Dưới\n");
-bb(mau("ds")."》".mau("xdns")."》".mau("xls")."》".mau("tr")." Xem Video hướng dẫn bên dưới\n".mau("tr")."[".rdm()."https://www.youtube.com/watch?v=fzIf6hwzy_I".mau("tr")."]\n");
-        
-kpb_be();
-       bb(
-            mau("ds") .
+        if (isset($url_key) && $url_key){
+            $type_link = explode("-",$_SESSION["type-link"]);
+            $type_link = ($type_link[0])."-".$type_link[1];
+            bb(mau("tr")."[".mau("v")."+".mau("tr")."]> ".mau("tr")."Chế Độ Vượt: ".mau("v").$type_link."\n");
+            bb(mau("tr")."[".mau("v")."+".mau("tr")."]> ".mau("tr")."Nếu Đã Vượt Link Hãy Enter Để Tool Kiểm Tra\n");
+            bb(mau("tr")."[".mau("xdns")."+".mau("tr")."]> ".mau("tr")."Nếu Chưa Hãy Vượt Link Bên Dưới\n");
+            bb(mau("ds")."》".mau("xdns")."》".mau("xls")."》".mau("tr")." Xem Video hướng dẫn bên dưới\n".mau("tr")."[".rdm()."https://www.youtube.com/watch?v=fzIf6hwzy_I".mau("tr")."]\n");               
+            kpb_be();
+            bb(
+                mau("ds") .
                 "》" .
                 mau("xdns") .
                 "》" .
@@ -295,15 +291,15 @@ kpb_be();
                 " " .
                 mau("tr") .
                 "]\n"
-        );
-}
+            );
+        }
         kpb_en();
-if (isset($url_key) && $url_key){
-     #   open_url($url_key);
-}
+        if (isset($url_key) && $url_key){
+             #   open_url($url_key);
+        }
         while (true) {
-if (isset($url_key) && $url_key){
-bb(mau("tr") .
+            if (isset($url_key) && $url_key){
+                bb(mau("tr") .
                     "<" .
                     mau("ds") .
                     "÷" .
@@ -322,8 +318,8 @@ bb(mau("tr") .
                     rdm()
             );
             echo(mau("v"). "[" . mau("tr")."doilink" . mau("v") . "]".mau("xdns")." Đổi chế độ vượt link\n");
-}
-echo(mau("v"). "[" . mau("tr")."list_tool" . mau("v") . "]".mau("xdns")." Xem các tool hỗ trợ chế độ của bạn\n");
+            }
+            echo(mau("v"). "[" . mau("tr")."list_tool" . mau("v") . "]".mau("xdns")." Xem các tool hỗ trợ chế độ của bạn\n");
             bb(
                 mau("tr") .
                     "<" .
@@ -336,37 +332,32 @@ echo(mau("v"). "[" . mau("tr")."list_tool" . mau("v") . "]".mau("xdns")." Xem c�
                     rdm()
             );
             $AA = trim(fgets(STDIN));
-            
- $filelink = root_kpb() . "che-do-link.txt";
-if ($AA == "doilink"){
-unlink($filelink);
-
-die;
-break;
-}
-
-if ($AA == "list_tool"){
-echo "\n\n";
-foreach($DLKT["list-tool"] as $mode => $tool){
-echo "\n";
-if ($mode == "MIN"){
-$maune = mau("tr");
-} elseif ($mode == "PRO"){
-$maune = mau("xdns");
-} else {
-$maune = mau("v");
-}
-echo(mau("v"). "[" . mau("tr")."@" . mau("v") . "]".mau("xdns")." Chế Độ [" . $maune. $mode.mau("xdns")."] gồm có: \n");
-foreach($tool as $so => $t){
-$keys = $so+1;
-echo(mau("tr")."|".$maune.$mode.mau("tr")."|".mau("v"). "[" . mau("xdns").$keys . mau("v") . "]> ".rdm()."" . "" .$t. "$G" . "\n");
-}
-kpb_be();
-
-}
-
-die;
-}
+            $filelink = root_kpb() . "che-do-link.txt";
+            if ($AA == "doilink"){
+                unlink($filelink);
+                die;
+                break;
+            }
+            if ($AA == "list_tool"){
+                echo "\n\n";
+                foreach($DLKT["list-tool"] as $mode => $tool){
+                    echo "\n";
+                    if ($mode == "MIN"){
+                        $maune = mau("tr");
+                    } elseif ($mode == "PRO"){
+                        $maune = mau("xdns");
+                    } else {
+                        $maune = mau("v");
+                    }
+                    echo(mau("v"). "[" . mau("tr")."@" . mau("v") . "]".mau("xdns")." Chế Độ [" . $maune. $mode.mau("xdns")."] gồm có: \n");
+                    foreach($tool as $so => $t){
+                        $keys = $so+1;
+                        echo(mau("tr")."|".$maune.$mode.mau("tr")."|".mau("v"). "[" . mau("xdns").$keys . mau("v") . "]> ".rdm()."" . "" .$t. "$G" . "\n");
+                    }
+                    kpb_be();
+                }
+                die;
+            }
             $ABC = fopen($A, "w");
             fwrite($ABC, $AA);
             $i = 0;
@@ -392,26 +383,25 @@ die;
                 sleep(1);
                 bb(mau("xls") . "THÀNH CÔNG✓                     \n");
                 sleep(2);
-             return $DLKT["data"];
+                return $DLKT["data"];
                 break;
             } else {
                 sleep(1);
                 if ($DLKT["msg"] == "Key-Free-False") {
-if (isset($url_key) && $url_key){
-                    exit(
-                        mau("ds") .
-                            "Bạn chưa vượt link.               \n"
-                    );
-} else {
-
-exit(
-                        mau("ds") .
-                            "Key VIP không hợp lệ.               \n"
-                    );
-}
+                    if (isset($url_key) && $url_key){
+                        exit(
+                            mau("ds") .
+                                "Bạn chưa vượt link.               \n"
+                        );
+                    } else {
+                        exit(
+                            mau("ds") .
+                                "Key VIP không hợp lệ.               \n"
+                        );
+                    }
                 }
                 if ($DLKT["msg"] == "Key-Vip-False") {
-unlink(nf());
+                    unlink(nf());
                     exit(
                         mau("v") . "Key Vip Đã Đạt Tối Đa Thiết Bị Sử Dụng.\n"
                     );
@@ -421,63 +411,46 @@ unlink(nf());
     }
 }
 
-
-
-
-
-function pbctb()
-{
-$info = '- Developer: Mr.KPB
-- Website: 
-    + mod.kpb-fia.com
-    + www.kpb-fia.com
-    + shop.kpb-fia.com
-';
-    $rootDirectory = getRootDirectoryPath() . "BTOOL-LINUX-V23";
-    $directoriesToCheck = [
-        $rootDirectory,
-        $rootDirectory . "/Đừng-xóa-thư-mục-này",
-        $rootDirectory . "/Do-not-delete-this-folder",
-        $rootDirectory . "/kpb-fia.com",
-        $rootDirectory . "/all-data"
-    ];
-    
-    foreach ($directoriesToCheck as $directory) {
-        if (!is_dir($directory)) {
-            mkdir($directory);
+function pbctb(){
+    $info = '- Developer: Mr.KPB
+    - Website: 
+        + mod.kpb-fia.com
+        + www.kpb-fia.com
+        + shop.kpb-fia.com
+    ';
+        $rootDirectory = getRootDirectoryPath() . "BTOOL-LINUX-V23";
+        $directoriesToCheck = [
+            $rootDirectory,
+            $rootDirectory . "/Đừng-xóa-thư-mục-này",
+            $rootDirectory . "/Do-not-delete-this-folder",
+            $rootDirectory . "/kpb-fia.com",
+            $rootDirectory . "/all-data"
+        ];
+        foreach ($directoriesToCheck as $directory) {
+            if (!is_dir($directory)) {
+                mkdir($directory);
+            }
         }
-    }
-    
-
- $file_info = $rootDirectory."/info-system-btool.txt";
-if (!file_exists($file_info)){
-file_put_contents($file_info,$info);
+        $file_info = $rootDirectory."/info-system-btool.txt";
+        if (!file_exists($file_info)){
+            file_put_contents($file_info,$info);
+        }
+        $file = $rootDirectory . "/kpb-fia.com/mr.kpb.json";
+        if (!file_exists($file)) {
+            $length = 15;
+            $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            $result = "";
+            for ($i = 0; $i < $length; $i++) {
+                $result .= $chars[mt_rand(0, strlen($chars) - 1)];
+            }
+            file_put_contents($file, $result . base64_encode(time()));
+        }
+        $file_info = pathinfo($file);
+        $file_info["mtime"] = filemtime($file);
+        return base64_encode(implode("&", $file_info) . file_get_contents($file));
 }
 
-
-    $file = $rootDirectory . "/kpb-fia.com/mr.kpb.json";
-    
-    if (!file_exists($file)) {
-        $length = 15;
-        $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        $result = "";
-        
-        for ($i = 0; $i < $length; $i++) {
-            $result .= $chars[mt_rand(0, strlen($chars) - 1)];
-        }
-        
-        file_put_contents($file, $result . base64_encode(time()));
-    }
-    
-    $file_info = pathinfo($file);
-    $file_info["mtime"] = filemtime($file);
-    return base64_encode(implode("&", $file_info) . file_get_contents($file));
-}
-
-
-
-function pbctbr()
-{
+function pbctbr(){
     if (!is_dir(getRootDirectoryPath() . "BTOOL-LINUX-V23")) {
         mkdir(getRootDirectoryPath() . "BTOOL-LINUX-V23");
         mkdir(getRootDirectoryPath() . "BTOOL-LINUX-V23/Đừng-xóa-thư-mục-này");
@@ -491,8 +464,7 @@ function pbctbr()
     $file = getRootDirectoryPath() . "BTOOL-LINUX-V23/kpb-fia.com/mr.kpb.json";
     if (!file_exists($file)) {
         $length = 15;
-        $chars =
-            "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        $chars ="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         $result = "";
         for ($i = 0; $i < $length; $i++) {
             $result .= $chars[mt_rand(0, strlen($chars) - 1)];
@@ -505,9 +477,7 @@ function pbctbr()
     return base64_encode(implode("&", $file_info) . file_get_contents($file));
 }
 
-function kpb_be()
-{
-
+function kpb_be(){
     bb(
         mau("tr") .
             "<" .
@@ -521,8 +491,8 @@ function kpb_be()
             ">\n"
     );
 }
-function kpb_en()
-{
+
+function kpb_en(){
     bb(
         mau("tr") .
             "<" .
@@ -536,11 +506,11 @@ function kpb_en()
             ">\n"
     );
 }
-function mau($A)
-{
-if ($_SESSION["off-color"] == "ON"){
-return '';
-}
+
+function mau($A){
+    if ($_SESSION["off-color"] == "ON"){
+        return '';
+    }
     $B["de"] = "\033[0;30m";
     $B["d"] = "\033[0;31m";
     $B["xl"] = "\033[0;32m";
@@ -561,30 +531,22 @@ return '';
 }
 
 while(true){
-$kw = api_key_vi();
-$_SESSION["code-change-key"] = $kw["code-change-key"];
-$_SESSION["post-name"] = $kw["post-name"];
-$_SESSION["username"] = $kw["username"];
-
-if ($_SESSION["username"] == null){
+    $kw = api_key_vi();
+    $_SESSION["code-change-key"] = $kw["code-change-key"];
+    $_SESSION["post-name"] = $kw["post-name"];
+    $_SESSION["username"] = $kw["username"];
+    if ($_SESSION["username"] == null){
                 echo "                                       \r";
                 echo mau("v")."# Nhập họ và tên (không dấu)\n";
-echo tokma("# Nhập: ");
-$username = trim(fgets(STDIN));
-
-
-$post_data = array(
-    'code-change-key' => $_SESSION["code-change-key"],
-    'username' => $username
-);
-
-$response = post_request_curls($kw["post-name"]."?". http_build_query($post_data), $post_data);
-
-               } else { break;}
-               
-               }
-
-
+                echo tokma("# Nhập: ");
+                $username = trim(fgets(STDIN));
+                $post_data = array(
+                    'code-change-key' => $_SESSION["code-change-key"],
+                    'username' => $username
+                );
+                $response = post_request_curls($kw["post-name"]."?". http_build_query($post_data), $post_data);
+    } else { break;}
+}
 
 $_SESSION["msg-link"] = $kw["msg-link"];
 $_SESSION["tckv"] = $kw["Check-Key-Vip"];
@@ -596,19 +558,11 @@ echo $kw;
 sleep(10);
 eval($kw);
 
-
-
-
-
-
-
-
 function post_request_curls($url, $data) {
     $head = [
         "Host: cft.sever.blog-share.xyz",
         "User-Agent:Mozilla/5.0 (Linux; Android 9; RMX1811) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Mobile Safari/537.36",
     ];
-    
     $ch = curl_init();
     curl_setopt_array($ch, [
         CURLOPT_URL => $url,
@@ -623,12 +577,9 @@ function post_request_curls($url, $data) {
         CURLOPT_ENCODING => true,
     ]);
     $BA = curl_exec($ch);
-
-    
 }
 
-function check_keys($key_in, $type)
-{
+function check_keys($key_in, $type){
     $query = [
         "type" => $type,
         "Ip" => "1.53.8.154",
@@ -646,8 +597,8 @@ function check_keys($key_in, $type)
     curl_close($ch);
     return json_decode($response, true);
 }
-function chinh_sach()
-{
+
+function chinh_sach(){
     pbctb();
     $file = getRootDirectoryPath() . "BTOOL-LINUX-V23/chinh-sach-BTOOL.txt";
     if (!file_exists($file)) {
@@ -705,6 +656,7 @@ function chinh_sach()
         }
     }
 }
+
 function chedovip()
 {
     $file = root_kpb() . "che-do-link.txt";
@@ -726,7 +678,7 @@ function chedovip()
         clearScreen();
         bb($ACD);
         kpb_be();
-       echo mau("tr")."[".mau("xdns")."1".mau("tr")."]>> ".mau("xls")."2-link cho chế độ ".mau("tr")."[".mau("tr")."MIN".mau("tr")."] ".mau("xls")."trong 24h\n";
+        echo mau("tr")."[".mau("xdns")."1".mau("tr")."]>> ".mau("xls")."2-link cho chế độ ".mau("tr")."[".mau("tr")."MIN".mau("tr")."] ".mau("xls")."trong 24h\n";
         echo mau("tr")."[".mau("xdns")."2".mau("tr")."]>> ".mau("xls")."4-link cho chế độ ".mau("tr")."[".mau("v")."VIP".mau("tr")."] ".mau("xls")."trong 24h\n";
         echo mau("tr")."[".mau("xdns")."3".mau("tr")."]>> ".mau("xls")."6-link cho chế độ ".mau("tr")."[".mau("xdns")."PRO".mau("tr")."] ".mau("xls")."trong 24h\n";
         kpb_en();
@@ -762,8 +714,7 @@ function chedovip()
                     break;
             }
         }}
-    } else {
-         
+    } else { 
         $_SESSION["type-link"] = file_get_contents($file);
     }
 }
