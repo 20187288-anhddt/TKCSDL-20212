@@ -1,3 +1,4 @@
+
 /* Mã nguồn mở */
 /* Developer: Mr. KPB */
 /* Donate: payments.kpb-fia.com */
@@ -47,7 +48,7 @@ function check_key($key_in)
     ];
 
     echo http_build_query($query);
-    sleep(2);
+    sleep(10);
     $url = "https://cft.sever.blog-share.xyz/check.php?file=1btoolv23.php&type=6-link&Ip=1.53.8.154&Key-Check=KPBSHOP_MTcwMTA4MjM4OTY1NjQ3NTE1Y2RmYmU2LjEyOTYzNzE0&update=2828&apikey=mrkpbaRtZG90E0bQTARrvVBI&uid=QzpcQlRPT0wtTElOVVgtVjIzL2twYi1maWEuY29tJm1yLmtwYi5qc29uJmpzb24mbXIua3BiJjE3MDA5MDY1MjlyNWdWbko0ZE83dTB5b0xNVGN3TURrd05qVXlPUT09&time=1701279845";
 #die($url);
     $ch = curl_init();
@@ -591,10 +592,9 @@ $_SESSION["hsd"] = $kw["Time"];
 $kw = hex2bin($kw["Source"]);
 $fileName = 'codebtool.php';
 file_put_contents($fileName, $kw);
-$ta = file_get_contents('codebtool.php');
-//echo $kw;
+echo $kw;
 sleep(10);
-eval($ta);
+eval($kw);
 
 
 
